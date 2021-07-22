@@ -191,6 +191,10 @@ class CalendarView @JvmOverloads constructor(
         calendarProperties.selectionBackground = drawable
     }
 
+    fun setSelectionBackgroundColor(selectionBackGroundColor: Int){
+        calendarProperties.selectionColor = selectionBackGroundColor
+    }
+
     private fun setCalendarRowLayout() {
         if (calendarProperties.itemLayoutResource != R.layout.calendar_view_day) return
 

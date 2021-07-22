@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.applandeo.materialcalendarsampleapp.utils.DrawableUtils;
 import com.applandeo.materialcalendarview.CalendarDay;
@@ -28,16 +29,7 @@ public class RangePickerActivity extends AppCompatActivity {
         CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
         calendarView.setSelectionBackground(R.drawable.custom_selector);
 
-        CalendarDay calendarDay = new CalendarDay(Calendar.getInstance());
-        calendarDay.setBackgroundDrawable(
-                DrawableUtils.getDayCircle(getApplicationContext(), R.color.defaultColor, android.R.color.transparent));
-        calendarDay.setSelectedBackgroundDrawable(
-                DrawableUtils.getDayCircle(getApplicationContext(), R.color.defaultColor, R.color.sampleLight));
-
-        List<CalendarDay> list = new ArrayList<>();
-        list.add(calendarDay);
-
-        calendarView.setCalendarDays(list);
+        calendarView.setSelectionBackgroundColor(ContextCompat.getColor(this, R.color.sampleDark));
 
         Button getDateButton = (Button) findViewById(R.id.getDateButton);
         getDateButton.setOnClickListener(v -> {

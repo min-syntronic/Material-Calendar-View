@@ -4,9 +4,11 @@ package com.applandeo.materialcalendarview.utils
 
 import android.content.Context
 import android.graphics.Typeface
+import android.graphics.drawable.Drawable
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import com.applandeo.materialcalendarview.CalendarDay
 import com.applandeo.materialcalendarview.R
 import java.util.*
@@ -158,7 +160,8 @@ private fun setNormalDayColors(calendar: Calendar, dayLabel: TextView, calendarP
 }
 
 private fun tintBackground(dayLabel: TextView, color: Int) {
-    dayLabel.background.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+    val wrappedDrawable: Drawable = DrawableCompat.wrap(dayLabel.background)
+    DrawableCompat.setTint(wrappedDrawable, color)
 }
 
 private fun CalendarDay.getLabelColor(context: Context): Int? {
